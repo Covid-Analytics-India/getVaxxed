@@ -1,0 +1,73 @@
+<div class="center">
+  <div class="form-container">
+    <form clrForm [formGroup]="this.form" (ngSubmit)="onSubmit()">
+      <clr-input-container>
+        <label>Name</label>
+        <input clrInput type="text" formControlName="name" />
+        <clr-control-helper>
+          Enter your name - same as in your Adhaar Card.
+        </clr-control-helper>
+        <clr-control-error>
+          Name is Required!
+        </clr-control-error>
+      </clr-input-container>
+      <clr-input-container>
+        <label>Age</label>
+        <input clrInput type="number" formControlName="age" />
+        <clr-control-helper>
+          Enter your age - same as in your Adhaar Card.
+        </clr-control-helper>
+        <clr-control-error>
+          Age is Required!
+        </clr-control-error>
+      </clr-input-container>
+      <clr-radio-container clrInline>
+        <label>Gender</label>
+        <clr-radio-wrapper>
+          <input
+            type="radio"
+            clrRadio
+            name="gender"
+            value="M"
+            formControlName="gender"
+          />
+          <label>Male</label>
+        </clr-radio-wrapper>
+        <clr-radio-wrapper>
+          <input
+            type="radio"
+            clrRadio
+            name="gender"
+            value="F"
+            formControlName="gender"
+          />
+          <label>Female</label>
+        </clr-radio-wrapper>
+        <clr-radio-wrapper>
+          <input
+            type="radio"
+            clrRadio
+            name="gender"
+            value="O"
+            formControlName="gender"
+          />
+          <label>Other</label>
+        </clr-radio-wrapper>
+        <clr-control-helper>
+          We ask for your Gender to take important analytical decisions based on
+          demography. This information will not be used for the purpose of
+          discrimination of the basis of Gender.
+        </clr-control-helper>
+        <clr-control-error>This field is required!</clr-control-error>
+      </clr-radio-container>
+      <button
+        [clrLoading]="submitBtnState"
+        class="btn btn-primary"
+        type="submit"
+        [disabled]="this.form.invalid"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</div>
