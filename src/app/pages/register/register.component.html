@@ -1,5 +1,5 @@
 <div class="center">
-  <div class="form-container">
+  <!-- <div class="form-container">
     <form clrForm [formGroup]="this.form" (ngSubmit)="onSubmit()">
       <clr-input-container>
         <label>Name</label>
@@ -69,5 +69,248 @@
         Submit
       </button>
     </form>
-  </div>
+  </div> -->
+  <form clrStepper [formGroup]="form" (ngSubmit)="this.onSubmit()">
+    <clr-stepper-panel formGroupName="personal">
+      <clr-step-title>Personal Information</clr-step-title>
+      <clr-step-description>Who are you?</clr-step-description>
+      <clr-step-content *clrIfExpanded>
+        <clr-input-container>
+          <label>Full Name</label>
+          <input clrInput formControlName="name" />
+          <clr-control-helper>
+            Enter your full name - same as in your Adhaar Card.
+          </clr-control-helper>
+          <clr-control-error *clrIfError="'required'"
+            >First Name Required</clr-control-error
+          >
+        </clr-input-container>
+
+        <clr-input-container>
+          <label>Age</label>
+          <input clrInput type="number" formControlName="age" />
+          <clr-control-helper>
+            Enter your age - same as in your Adhaar Card.
+          </clr-control-helper>
+          <clr-control-error> Age is Required! </clr-control-error>
+        </clr-input-container>
+        <clr-radio-container clrInline>
+          <label>Gender</label>
+          <clr-radio-wrapper>
+            <input
+              type="radio"
+              clrRadio
+              name="gender"
+              value="M"
+              formControlName="gender"
+            />
+            <label>Male</label>
+          </clr-radio-wrapper>
+          <clr-radio-wrapper>
+            <input
+              type="radio"
+              clrRadio
+              name="gender"
+              value="F"
+              formControlName="gender"
+            />
+            <label>Female</label>
+          </clr-radio-wrapper>
+          <clr-radio-wrapper>
+            <input
+              type="radio"
+              clrRadio
+              name="gender"
+              value="O"
+              formControlName="gender"
+            />
+            <label>Other</label>
+          </clr-radio-wrapper>
+          <clr-control-helper>
+            We ask for your Gender to take important analytical decisions based
+            on demography.
+            <br />
+            This information will not be used for the purpose of discrimination
+            of the basis of Gender.
+          </clr-control-helper>
+          <clr-control-error>This field is required!</clr-control-error>
+        </clr-radio-container>
+        <clr-input-container>
+          <label>Profession</label>
+          <input clrInput type="text" formControlName="profession" />
+          <clr-control-helper>
+            Enter your profession.
+          </clr-control-helper>
+          <clr-control-error> Profession is Required! </clr-control-error>
+        </clr-input-container>
+        <button clrStepButton="next">next</button>
+      </clr-step-content>
+    </clr-stepper-panel>
+
+    <clr-stepper-panel formGroupName="contact">
+      <clr-step-title>ID & Contact Information</clr-step-title>
+      <clr-step-description>Prove who you are!</clr-step-description>
+      <clr-step-content *clrIfExpanded>
+        <clr-input-container>
+          <label>Email ID</label>
+          <input clrInput type="email" formControlName="email" />
+          <clr-control-helper>
+            This email address will be used to send you information and
+            availability of your vaccine booking.
+          </clr-control-helper>
+          <clr-control-error> Email is Required!</clr-control-error>
+        </clr-input-container>
+        <clr-input-container>
+          <label>Phone Number</label>
+          <input clrInput type="number" formControlName="phone" />
+          <clr-control-helper>
+            This phone number will be used to send you information and
+            availability of your vaccine booking.
+          </clr-control-helper>
+          <clr-control-error> Phone Number is Required!</clr-control-error>
+        </clr-input-container>
+
+        <clr-input-container>
+          <label>Aadhar Card Number</label>
+          <input clrInput type="number" formControlName="aadhaar" />
+          <clr-control-helper>
+            This is the mission critical information - your Aadhaar Number will
+            help us uniquely identify you.
+          </clr-control-helper>
+          <clr-control-error> Aadhar Number is Required!</clr-control-error>
+        </clr-input-container>
+        <button clrStepButton="next">next</button>
+      </clr-step-content>
+    </clr-stepper-panel>
+
+    <clr-stepper-panel formGroupName="address">
+      <clr-step-title>Address</clr-step-title>
+      <clr-step-description>Where are you?</clr-step-description>
+      <clr-step-content *clrIfExpanded>
+        <clr-input-container>
+          <label>District</label>
+          <input clrInput formControlName="district" />
+          <clr-control-error *clrIfError="'required'"
+            >District Required</clr-control-error
+          >
+        </clr-input-container>
+
+        <clr-input-container>
+          <label>City</label>
+          <input clrInput formControlName="city" />
+          <clr-control-error *clrIfError="'required'"
+            >City Required</clr-control-error
+          >
+        </clr-input-container>
+        <clr-input-container>
+          <label>State</label>
+          <input clrInput formControlName="state" />
+          <clr-control-error *clrIfError="'required'"
+            >State Required</clr-control-error
+          >
+        </clr-input-container>
+        <clr-input-container>
+          <label>Pincode</label>
+          <input clrInput type="number" formControlName="pincode" />
+          <clr-control-error> Pincode is Required! </clr-control-error>
+        </clr-input-container>
+        <button clrStepButton="next">next</button>
+      </clr-step-content>
+    </clr-stepper-panel>
+
+    <clr-stepper-panel formGroupName="medical">
+      <clr-step-title>Medical Information</clr-step-title>
+      <clr-step-description>How are you?</clr-step-description>
+      <clr-step-content *clrIfExpanded>
+        <clr-radio-container clrInline>
+          <label>Previously Contracted with COVID-19?</label>
+          <clr-radio-wrapper>
+            <input
+              type="radio"
+              clrRadio
+              name="prevContracted"
+              value="true"
+              formControlName="prevContracted"
+            />
+            <label>Yes</label>
+          </clr-radio-wrapper>
+          <clr-radio-wrapper>
+            <input
+              type="radio"
+              clrRadio
+              name="prevContracted"
+              value="false"
+              formControlName="prevContracted"
+            />
+            <label>No</label>
+          </clr-radio-wrapper>
+          <clr-control-helper>
+            We ask for your this information to take important analytical
+            decisions based on demography.
+          </clr-control-helper>
+          <clr-control-error>This field is required!</clr-control-error>
+        </clr-radio-container>
+        <clr-input-container>
+          <label>Date Tested Positive for COVID-19</label>
+          <input clrInput formControlName="datePositive" />
+          <clr-control-error *clrIfError="'required'"
+            >This feild is Required</clr-control-error
+          >
+        </clr-input-container>
+
+        <clr-input-container>
+          <label>Date Tested Negative for COVID-19</label>
+          <input clrInput formControlName="dateNegative" />
+          <clr-control-error *clrIfError="'required'"
+            >This feild is Required</clr-control-error
+          >
+        </clr-input-container>
+
+        <clr-input-container>
+          <label>Name of Hospital where treated: </label>
+          <input clrInput formControlName="hospitalName" />
+          <clr-control-error *clrIfError="'required'"
+            >This feild is Required</clr-control-error
+          >
+        </clr-input-container>
+        <clr-radio-container clrInline>
+          <label>Currently Suffering from COVID-19?</label>
+          <clr-radio-wrapper>
+            <input
+              type="radio"
+              clrRadio
+              name="currentlySuffering"
+              value="true"
+              formControlName="currentlySuffering"
+            />
+            <label>Yes</label>
+          </clr-radio-wrapper>
+          <clr-radio-wrapper>
+            <input
+              type="radio"
+              clrRadio
+              name="currentlySuffering"
+              value="false"
+              formControlName="currentlySuffering"
+            />
+            <label>No</label>
+          </clr-radio-wrapper>
+          <clr-control-helper>
+            We ask for your this information to take important analytical
+            decisions based on demography.
+          </clr-control-helper>
+          <clr-control-error>This field is required!</clr-control-error>
+        </clr-radio-container>
+        <clr-input-container>
+          <label>Disability</label>
+          <input clrInput formControlName="disability" />
+          <clr-control-error *clrIfError="'required'"
+            >Disability Required</clr-control-error
+          >
+        </clr-input-container>
+        <!-- <button clrStepButton="next">next</button> -->
+        <button clrStepButton="submit">submit</button>
+      </clr-step-content>
+    </clr-stepper-panel>
+  </form>
 </div>

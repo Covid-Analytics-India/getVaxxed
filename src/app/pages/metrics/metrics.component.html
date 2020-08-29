@@ -1,15 +1,40 @@
 <clr-datagrid>
-    <clr-dg-column>User ID</clr-dg-column>
-    <clr-dg-column>Name</clr-dg-column>
-    <clr-dg-column>Age</clr-dg-column>
-    <clr-dg-column>Gender</clr-dg-column>
+  <clr-dg-column>User ID</clr-dg-column>
+  <clr-dg-column>Aadhaar</clr-dg-column>
+  <clr-dg-column>Name</clr-dg-column>
+  <clr-dg-column>Age</clr-dg-column>
+  <clr-dg-column>Gender</clr-dg-column>
+  <clr-dg-column>Profession</clr-dg-column>
+  <clr-dg-column>Email</clr-dg-column>
+  <clr-dg-column>Phone</clr-dg-column>
+  <clr-dg-column>Location</clr-dg-column>
+  <clr-dg-column>PrevContracted</clr-dg-column>
+  <clr-dg-column>DatePositive</clr-dg-column>
+  <clr-dg-column>DateNegative</clr-dg-column>
+  <clr-dg-column>Hospital</clr-dg-column>
+  <clr-dg-column>Currently Suffering</clr-dg-column>
+  <clr-dg-column>Disability</clr-dg-column>
 
-    <clr-dg-row *ngFor="let citizen of citizens">
-        <clr-dg-cell>{{citizen.id}}</clr-dg-cell>
-        <clr-dg-cell>{{citizen.name}}</clr-dg-cell>
-        <clr-dg-cell>{{citizen.age}}</clr-dg-cell>
-        <clr-dg-cell>{{citizen.gender}}</clr-dg-cell>
-    </clr-dg-row>
+  <clr-dg-row *ngFor="let citizen of citizens">
+    <clr-dg-cell>{{ citizen.id }}</clr-dg-cell>
+    <clr-dg-cell>{{ citizen.aadhaar }}</clr-dg-cell>
+    <clr-dg-cell>{{ citizen.name }}</clr-dg-cell>
+    <clr-dg-cell>{{ citizen.age }}</clr-dg-cell>
+    <clr-dg-cell>{{ citizen.gender }}</clr-dg-cell>
+    <clr-dg-cell>{{ citizen.profession }}</clr-dg-cell>
+    <clr-dg-cell>{{ citizen.email }}</clr-dg-cell>
+    <clr-dg-cell>{{ citizen.phone }}</clr-dg-cell>
+    <clr-dg-cell>
+      {{ citizen.district }}, {{ citizen.city }}, {{ citizen.state }},
+      {{ citizen.pincode }}
+    </clr-dg-cell>
+    <clr-dg-cell>{{ citizen.prevContracted }}</clr-dg-cell>
+    <clr-dg-cell>{{ citizen.datePositive }}</clr-dg-cell>
+    <clr-dg-cell>{{ citizen.dateNegative }}</clr-dg-cell>
+    <clr-dg-cell>{{ citizen.hospitalName }}</clr-dg-cell>
+    <clr-dg-cell>{{ citizen.currentlySuffering }}</clr-dg-cell>
+    <clr-dg-cell>{{ citizen.disability }}</clr-dg-cell>
+  </clr-dg-row>
 
-    <clr-dg-footer>{{citizens.length}} Citizens</clr-dg-footer>
+  <clr-dg-footer>{{ citizens.length }} Citizens</clr-dg-footer>
 </clr-datagrid>
