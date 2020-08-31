@@ -1,4 +1,4 @@
-<clr-datagrid>
+<clr-datagrid *ngIf="this.citizens.length > 0">
   <clr-dg-column>User ID</clr-dg-column>
   <clr-dg-column>Aadhaar</clr-dg-column>
   <clr-dg-column>Name</clr-dg-column>
@@ -15,7 +15,7 @@
   <clr-dg-column>Currently Suffering</clr-dg-column>
   <clr-dg-column>Disability</clr-dg-column>
 
-  <clr-dg-row *ngFor="let citizen of citizens">
+  <clr-dg-row *clrDgItems="let citizen of citizens">
     <clr-dg-cell>{{ citizen.id }}</clr-dg-cell>
     <clr-dg-cell>{{ citizen.aadhaar }}</clr-dg-cell>
     <clr-dg-cell>{{ citizen.name }}</clr-dg-cell>
@@ -36,5 +36,14 @@
     <clr-dg-cell>{{ citizen.disability }}</clr-dg-cell>
   </clr-dg-row>
 
-  <clr-dg-footer>{{ citizens.length }} Citizens</clr-dg-footer>
+  <clr-dg-footer>
+    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+      <clr-dg-page-size [clrPageSizeOptions]="[10, 20, 50, 100]"
+        >Users per page</clr-dg-page-size
+      >
+      {{ pagination.firstItem + 1 }} - {{ pagination.lastItem + 1 }} of
+      {{ pagination.totalItems }} users
+    </clr-dg-pagination>
+    <!-- {{ citizens.length }} Citizens -->
+  </clr-dg-footer>
 </clr-datagrid>
